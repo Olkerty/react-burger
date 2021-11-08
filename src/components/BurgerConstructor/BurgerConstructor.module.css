@@ -1,0 +1,57 @@
+.BurgerConstructor {
+	margin-top: 100px;
+	margin-left :40px;
+	display: flex;
+	flex-direction: column;
+	height: 656px;
+
+}
+
+
+
+
+.BurgerConstructorMainContainer {
+	display: flex;
+	flex-direction: column;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	height: 480px;
+	overflow-y: auto;
+}
+
+.BurgerConstructorMainContainer::-webkit-scrollbar {
+  width: 8px;               /* ширина scrollbar */
+}
+
+.BurgerConstructorMainContainer::-webkit-scrollbar-track {
+  background: #2F2F37;        /* цвет дорожки */
+}
+
+.BurgerConstructorMainContainer::-webkit-scrollbar-thumb {
+  background-color: #8585AD;    /* цвет плашки */
+}
+
+.ConstructorElementContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 16px;
+}
+
+.ConstructorElementContainer:first-of-type {
+	margin: 0;
+}
+
+.PriceContainer {
+	display: flex;
+	margin-top: 40px;
+	margin-right: 16px;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: row;
+}
+
+.edgeConstructorElementContainer {
+	padding: 0;
+	margin-left: 0px;
+}
