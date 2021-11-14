@@ -9,9 +9,13 @@ interface IngredientItemInterface {
 	onClick: () => void;
 }
 
+
 const IngredientItem: FC<IngredientItemInterface> = ({ image, name, price, onClick }) => {
+
+	let randomCounter = Math.floor(Math.random() * 5)
 	return (
 		<div onClick={onClick} className={styles.ingredientItem}>
+			<Counter count={randomCounter} size='default' />
 			<img src={image} alt={name} />
 			<div className={styles.ingredientItemPriceContainer} >
 				<p className={"text text_type_digits-default " + styles.ingredientItemPrice}>
