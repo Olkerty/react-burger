@@ -9,10 +9,11 @@ interface IngredientListInterface {
 	ingredients: burger[];
 	listName: string;
 	id?: string;
+	displayPopupIngredients: (arg0: burger) => void;
 }
 
 
-const IngredientList: FC<IngredientListInterface> = ({ ingredients, listName, id }) => {
+const IngredientList: FC<IngredientListInterface> = ({ ingredients, listName, id, displayPopupIngredients }) => {
 	return (
 		<div id={id}>
 			<h3 className={'text text_type_main-medium ' + styles.IngredientListItem}>
@@ -22,7 +23,12 @@ const IngredientList: FC<IngredientListInterface> = ({ ingredients, listName, id
 				{
 					ingredients.map((item) => {
 						return (
-							<BurgerIngredientItem name={item.name} image={item.image} price={item.price}>
+							<BurgerIngredientItem
+								name={item.name}
+								image={item.image}
+								price={item.price}
+								onClick={() => displayPopupIngredients(item)}
+							>
 							</BurgerIngredientItem>
 						);
 					})

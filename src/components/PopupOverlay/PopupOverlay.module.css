@@ -1,0 +1,25 @@
+.PopupOverlay {
+	position: fixed;
+	width: 720px;
+left: calc(50% - 360px);
+top: calc(50vh - 270px);
+
+}
+
+.ingredientsPopupInnerCloseButton {
+	position: absolute;
+	top: 60px;
+	right: 40px;
+	z-index: 10;
+	background-color:#1C1C21;
+	background-image: url(../../images/closeIcon.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 24px;
+	border: none;
+}
+
+.ingredientsPopupInnerCloseButton:hover {
+	cursor: pointer;
+}

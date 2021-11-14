@@ -6,11 +6,12 @@ interface IngredientItemInterface {
 	image: string;
 	name: string;
 	price: number;
+	onClick: () => void;
 }
 
-const IngredientItem: FC<IngredientItemInterface> = ({ image, name, price }) => {
+const IngredientItem: FC<IngredientItemInterface> = ({ image, name, price, onClick }) => {
 	return (
-		<div className={styles.ingredientItem}>
+		<div onClick={onClick} className={styles.ingredientItem}>
 			<img src={image} alt={name} />
 			<div className={styles.ingredientItemPriceContainer} >
 				<p className={"text text_type_digits-default " + styles.ingredientItemPrice}>
