@@ -4,15 +4,19 @@ import styles from './BurgerConstructor.module.css';
 import { burgerData } from '../../data/data.js';
 import MyCurrencyIcon from '../MyCurrencyIcon/MyCurrencyIcon';
 import { burger } from '../../types/types';
+import PopupOrder from '../PopupOrder/PopupOrder';
 
 interface BurgerConstructorProps {
 	ingredients: burger[],
-	displayOrderIngredients: () => void;
+	openModal: (children: any) => void;
 }
 
-const BurgerConstructor: FC<BurgerConstructorProps> = ({ ingredients, displayOrderIngredients }) => {
+const BurgerConstructor: FC<BurgerConstructorProps> = ({ ingredients, openModal }) => {
 	const burgerData = ingredients;
-	console.log(ingredients);
+	const displayOrderIngredients = () => {
+		openModal(<PopupOrder> </PopupOrder>);
+	}
+	//	console.log(ingredients);
 	return (
 		burgerData.length == 0 ? null : true &&
 			<div className={styles.BurgerConstructor}>
@@ -30,7 +34,10 @@ const BurgerConstructor: FC<BurgerConstructorProps> = ({ ingredients, displayOrd
 						burgerData.map((item, index) => {
 							if (index !== 0 && index !== burgerData.length - 1) {
 								return (
-									<div className={styles.ConstructorElementContainer}>
+									<div
+										key={index.toString()}
+										className={styles.ConstructorElementContainer}
+									>
 										<DragIcon type='primary' />
 										<ConstructorElement
 											thumbnail={item.image_mobile}

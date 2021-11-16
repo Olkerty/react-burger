@@ -4,16 +4,17 @@ import styles from './IngredientList.module.css';
 import BurgerIngredientItem from '../BurgerIngredientItem/BurgerIngredientItem';
 import { burgerData } from '../../data/data';
 import { burger } from '../../types/types';
+import PopupIngredients from '../PopupIngredients/PopupIngredients';
 
 interface IngredientListInterface {
 	ingredients: burger[];
 	listName: string;
 	id?: string;
-	displayPopupIngredients: (arg0: burger) => void;
+	openModal: (arg0: any) => void;
 }
 
 
-const IngredientList: FC<IngredientListInterface> = ({ ingredients, listName, id, displayPopupIngredients }) => {
+const IngredientList: FC<IngredientListInterface> = ({ ingredients, listName, id, openModal }) => {
 	return (
 		<div id={id}>
 			<h3 className={'text text_type_main-medium ' + styles.IngredientListItem}>
@@ -24,10 +25,13 @@ const IngredientList: FC<IngredientListInterface> = ({ ingredients, listName, id
 					ingredients.map((item) => {
 						return (
 							<BurgerIngredientItem
+								key={item._id}
 								name={item.name}
 								image={item.image}
 								price={item.price}
-								onClick={() => displayPopupIngredients(item)}
+								onClick={() => {
+									openModal(<PopupIngredients burger={item} />)
+								}}
 							>
 							</BurgerIngredientItem>
 						);

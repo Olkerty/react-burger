@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { Counter, Tab, CurrencyIcon, ProfileIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './BurgerIngredientItem.module.css';
 
@@ -12,7 +12,8 @@ interface IngredientItemInterface {
 
 const IngredientItem: FC<IngredientItemInterface> = ({ image, name, price, onClick }) => {
 
-	let randomCounter = Math.floor(Math.random() * 5)
+	const randomCounter = useMemo(() => Math.floor(Math.random() * 5), [])
+
 	return (
 		<div onClick={onClick} className={styles.ingredientItem}>
 			<Counter count={randomCounter} size='default' />
