@@ -13,9 +13,6 @@ const ingridUrl = 'https://norma.nomoreparties.space/api/ingredients';
 
 function App() {
   const [ingredients, setIngredients] = useState([]);
-  const [popupBurger, setPopupBurger] = useState<burger>(ingredients[0]);
-  const [isPopupIngredients, setIsPopupIngredients] = useState(false);
-  const [isPopupOrder, setIsPopupOrder] = useState(false);
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [modalInner, setModalInner] = useState();
   async function getIngredients() {
@@ -29,18 +26,19 @@ function App() {
       temp = await getIngredients();
       setIngredients(temp);
     }
-    fetch()
+    fetch();
+    function closeModalByEsc(event: any) {
+      if (event.key === 'Escape') {
+        closeModal()
+      }
+    }
     document.addEventListener('keydown', closeModalByEsc)
 
     return function clean() {
       document.removeEventListener('keydown', closeModalByEsc)
     };
   }, [])
-  function closeModalByEsc(event: any) {
-    if (event.key === 'Escape') {
-      closeModal()
-    }
-  }
+
   function closeModal() {
     setIsModalOpened(false);
   }
