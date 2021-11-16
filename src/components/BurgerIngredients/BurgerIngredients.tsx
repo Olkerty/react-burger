@@ -8,11 +8,11 @@ import IngredientList from '../IngredientsList/IngredientsList';
 
 interface BurgerIngredientsProps {
 	ingredients: burger[],
-	displayPopupIngredients: (arg0: burger) => void;
+	openModal: (arg: any) => void;
 }
 
 
-const BurgerIngredients: FC<BurgerIngredientsProps> = ({ ingredients, displayPopupIngredients }) => {
+const BurgerIngredients: FC<BurgerIngredientsProps> = ({ ingredients, openModal }) => {
 	const [current, setCurrent] = React.useState('one');
 	const [isIngredientPopupOpened, setIsIngredientPopupOpened] = useState(true);
 	const bunArray: burger[] = [];
@@ -74,9 +74,9 @@ const BurgerIngredients: FC<BurgerIngredientsProps> = ({ ingredients, displayPop
 				</Tab>
 			</div>
 			<div className={styles.BurgerIngredientsListContainer}>
-				<IngredientList id={'bun'} ingredients={bunArray} listName={'Булки'} displayPopupIngredients={displayPopupIngredients} />
-				<IngredientList id={'sauce'} ingredients={sauceArray} listName={'Соусы'} displayPopupIngredients={displayPopupIngredients} />
-				<IngredientList id={'main'} ingredients={mainArray} listName={'Начинка'} displayPopupIngredients={displayPopupIngredients} />
+				<IngredientList id={'bun'} ingredients={bunArray} listName={'Булки'} openModal={openModal} />
+				<IngredientList id={'sauce'} ingredients={sauceArray} listName={'Соусы'} openModal={openModal} />
+				<IngredientList id={'main'} ingredients={mainArray} listName={'Начинка'} openModal={openModal} />
 			</div>
 
 		</div>
