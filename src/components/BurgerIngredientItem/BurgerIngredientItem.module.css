@@ -1,0 +1,26 @@
+.ingredientItem {
+	position: relative;
+	width: 272px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.ingredientItemPrice {
+	margin: 0;
+	padding: 0;
+	margin-right: 9px;
+}
+
+.ingredientItemPriceContainer {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+.ingredientItemName { 
+	margin: 0;
+	padding: 0;
+	min-height: 48px;
+}

@@ -1,0 +1,39 @@
+@import url(../utilscss/utilscss.css);
+
+.BurgerIngredients {
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 44px;
+}
+
+.BurgerTabPanel {
+	display: flex;
+	flex-direction: row;
+}
+
+.BurgerIngredientsListContainer {
+	display: flex;
+	flex-direction: column;
+	height: 960px;
+	max-width: 600px; 
+	overflow-y: auto;
+}
+
+.BurgerIngredientsListContainer::-webkit-scrollbar {
+  width: 8px;               /* ширина scrollbar */
+}
+.BurgerIngredientsListContainer::-webkit-scrollbar-track {
+  background: #2F2F37;        /* цвет дорожки */
+}
+.BurgerIngredientsListContainer::-webkit-scrollbar-thumb {
+  background-color: #8585AD;    /* цвет плашки */
+}
+
+.BurgerIngredients__header {
+	width: 100%;
+	margin-top: 40px;
+	margin-bottom: 20px;
+text-align: left;
+}

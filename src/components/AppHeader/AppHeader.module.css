@@ -1,0 +1,42 @@
+.AppHeader {
+	padding-top: 16px;
+	padding-bottom: 16px;
+	height: 88px;
+	box-sizing: border-box;
+	padding-left: 120px;
+	padding-right: 120px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.AppHeader__itemtext {
+	margin-left: 8px;
+	color: #8585AD;
+}
+
+.AppHeader__itemtext_burger {
+	color: white;
+}
+
+.AppHeader__item {
+font-family: JetBrains Mono;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+		padding-top: 16px;
+	padding-bottom: 16px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	vertical-align: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.AppHeader__logo {
+margin-left: 112px;
+margin-right: 288px;
+}
