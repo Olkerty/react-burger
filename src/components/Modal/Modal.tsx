@@ -1,13 +1,16 @@
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import React from "react";
-
+import { createPortal } from "react-dom";
+import ModalOverlay from "../ModalOverlay/ModalOverlay";
 import styles from './Modal.module.css';
 
-const Modal = (props: any) => {
+let modalContainer: any = document.getElementById('modals');
 
-	return (
+const Modal = (props: any) => {
+	console.log(modalContainer);
+	return createPortal((
 		<div className={styles.Modal}>
-			<div className={styles.ModalOverlay} onClick={props.closeModal}></div>
+			<ModalOverlay closeModal={props.closeModal}></ModalOverlay>
 			<div className={styles.ModalInner}>
 				{props.children}
 				<div className={styles.closeButton}>
@@ -15,6 +18,7 @@ const Modal = (props: any) => {
 				</div>
 			</div>
 		</div>
+	), modalContainer
 	);
 }
 

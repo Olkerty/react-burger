@@ -15,18 +15,20 @@ function App() {
   const [ingredients, setIngredients] = useState([]);
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [modalInner, setModalInner] = useState();
-  async function getIngredients() {
-    const response = await axios.get(ingridUrl);
-    //console.log(response.data);
-    return response.data.data;
-  }
   useEffect(() => {
-    let temp;
-    const fetch = async () => {
-      temp = await getIngredients();
-      setIngredients(temp);
+    const getIngredients = async () => {
+      try {
+        const response = await fetch(ingridUrl);
+        if (!response.ok) {
+          throw ('Response error ' + response.status);
+        }
+        const responseData = await response.json();
+        setIngredients(responseData.data);
+      } catch (error) {
+        console.log(error + 'occurred');
+      }
     }
-    fetch();
+    getIngredients();
     function closeModalByEsc(event: any) {
       if (event.key === 'Escape') {
         closeModal()
@@ -44,6 +46,7 @@ function App() {
   }
 
   function openModal(children: any) {
+    console.log(isModalOpened);
     fillModal(children);
     setIsModalOpened(true);
   }
@@ -51,13 +54,18 @@ function App() {
   function fillModal(children: any) {
     setModalInner(children);
   }
-
-  //<PopupIngredients />
+  const modal = (
+    <Modal
+      closeModal={closeModal}
+    >
+      {modalInner}
+    </Modal>
+  );
   return (
     <div className={styles.App}>
       {
         isModalOpened &&
-        <Modal closeModal={closeModal}> {modalInner} </Modal>
+        modal
       }
       <AppHeader />
       <section className={styles.burgerConstructionSection}>
